@@ -690,9 +690,45 @@ Other than that, there isn't a whole lot to say about auctions - once you have f
 *Remember: The auction market can wait. Focus on training your current horses first!*
       `
     },
-    'vet-services': {
-      title: 'Vet Services',
+    'first-things-second': {
+      title: 'First Things Second',
       content: `
+# First Things Second
+
+As you should have discovered by now, there is a lot in TK. The site contains a lot of information on how best to succeed.
+
+A few basic easy steps to getting started, and getting those horses heading towards winning condition!
+
+## Your First Three Steps
+
+1. **Purchase 2 additional hours of vets** (total 4), apply one hour to each horse
+2. **Purchase 8 additional hours of training** (total 12), and apply three to each horse
+3. **Enter two horses into class racing** to start earning money and experience
+
+These are the first few important steps to take, and will get you started on your way to success.
+
+## All New Stables Start With
+
+- ✅ **5 stalls** - Room for your starting horses
+- ✅ **2 vet hours** - Basic medical care 
+- ✅ **4 training hours** - Foundation training time
+- ✅ **$250,000+ stable cash** - Depends on class/sponsor money
+- ✅ **$50,000+ personal cash** - Your starting funds
+- ✅ **Horses at vigorous condition** - Ready to race!
+
+## Important Reminders
+
+⚠️ **Without vets, your horses will quickly drop to 'fresh' medical condition!**
+
+📝 **Note:** Horses may be entered into a race or two, depending on what the bots had done this week. Any of these races will have an unlisted apprentice on them.
+
+## What to Focus On
+
+- **Immediate priorities** - Vet hours and training expansion
+- **Short-term goals** - Enter class racing to start earning
+- **Long-term vision** - Build a sustainable, profitable stable
+
+*Take it one step at a time - you'll be a successful stable manager before you know it!*
 # Vet Services
 
 ## Overview
@@ -1395,22 +1431,44 @@ Feel free to ask them any questions you may have about the game - believe me, th
 *The Mentor Program represents the best of the Track King community - experienced players helping newcomers succeed.*
       `
     },
-    'the-levels': {
-      title: 'The Levels',
+    'cup-races': {
+      title: 'Cup Races',
       content: `
-# The Levels
+# Cup Races
 
-Understanding the class system in Track King is crucial for planning your stable's progression and competitive strategy.
+This is the TK crowning glory. **Winning a Cup!**
 
-## Class Structure Overview
+There are many different cups: some are TK sponsored, some are sponsored by business and corporate companies, and others are sponsored by TK players themselves!
 
-Track King uses a class-based system to organize competition and ensure fair racing among stables of similar development levels.
+## Types of Cups
 
-### Class Progression
-- **Class 6** - Starting level for new stables
-- **Class 5** - Early development stage
-- **Class 4** - Intermediate competition
-- **Class 3** - Advanced stable management
+### Official TK Cups
+These are cups sponsored by TK. For regional ones such as Sprint Shield, Magic Mile, Classic/Challenge, you receive your invite automatically. For other official TK cups such as the Track King Open and the Paupers Kettle, you must purchase invites via the Cup Info page.
+
+### Official Sponsored Cups  
+These are cups sponsored by a mixture of companies wishing to advertise in TK, and by TK players themselves. The Breeders Cup Series, while nominally sponsored by this site, is now sponsored by a group of dedicated players within TK.
+
+### Community Cups
+These cups can be created by anyone within TK for the cost of some game credits. Once they reach their required number of credits, they are scheduled. They have unique options, including Rivalry Cups where two tracks compete to see who is the best.
+
+## Cup Information
+
+### Key Details
+- **Horse restrictions** - Some cups allow you to use any horse for each successive round, others require you to use the same horse
+- **Invitations required** - The invitation process is listed on each respective Cup page
+- **Performance matters** - Top x-number of horses receive invites to successive rounds
+- **Schedule** - Cup races run over up to 4 consecutive weekends, depending on rounds
+- **Race days** - Saturday and Sunday
+
+## Why Race in Cup Races?
+
+- 🏆 **For prestige** - Elite competition recognition
+- ⭐ **For glory** - Racing excellence
+- 💰 **For the money** - Substantial prize pools  
+- 🏅 **For trophies** - Pretty shiny hardware for your cabinet
+- 🎉 **For fun** - The ultimate racing experience
+
+*Cup races represent the pinnacle of Track King competition - train hard and race smart to earn your invitation!*
 - **Class 2** - Elite competition
 - **Class 1** - The pinnacle of Track King racing
 
@@ -1439,9 +1497,83 @@ Take your time at each level to master the fundamentals before advancing. Each c
     'the-levels': {
       title: 'The Levels',
       content: `
-# First Things Second
+# The Levels
 
-As you should have discovered by now, there is a lot in TK. A few basic easy steps to getting started, and getting those horses heading towards winning condition!
+You will have noticed that everything has a word and number value attached. Here's a comprehensive guide to understanding where you are at in Track King.
+
+The important thing to note - each level has a sublevel, some has less sublevels than others, and these ratings will change at a faster rate.
+
+## Condition Ratings
+(From worst to best)
+- **Incapacitated** - Critical condition requiring immediate attention
+- **Debilitated** - Severely weakened
+- **Exhausted** - Completely drained
+- **Wasted** - Very poor condition
+- **Drained** - Low energy reserves
+- **Spent** - Used up energy
+- **Weary** - Tired but functional
+- **Adequate** - Acceptable condition
+- **Fresh** - Good energy levels
+- **Vigorous** - Excellent condition
+
+## Horse Spirit Types
+Understanding your horse's temperament:
+- **Docile** - Very calm and manageable
+- **Placid** - Peaceful and easy-going
+- **Obedient** - Follows instructions well
+- **Resilient** - Bounces back from setbacks
+- **Frisky** - Playful and energetic
+- **Strong-willed** - Has own opinions
+- **Temperamental** - Mood varies
+- **Aggressive** - Can be difficult to handle
+- **Fiery** - High-spirited and intense
+- **Unbroken** - Wild and untrained
+
+## Skills Rating Scale
+(From worst to best)
+- **Dire** - Extremely poor
+- **Awful** - Very bad
+- **Miserable** - Poor performance
+- **Underdone** - Needs development
+- **Ordinary** - Below average
+- **Average** - Standard level
+- **Moderate** - Decent ability
+- **Adequate** - Sufficient skill
+- **Acceptable** - Good enough
+- **Satisfactory** - Meets expectations
+- **Reasonable** - Above average
+- **Admirable** - Very good
+- **Excellent** - Outstanding
+- **Grand** - Impressive
+- **Tremendous** - Exceptional
+- **Marvelous** - Amazing
+- **Majestic** - Magnificent
+- **Spectacular** - Stunning
+- **Imposing** - Commanding
+- **Awe-inspiring** - The absolute best
+
+## Track Conditions
+Track surface affects race performance:
+- ✅ **Fast** - The best condition for speed
+- **Good** - Excellent racing surface
+- **Dead** - Neutral, balanced surface
+- **Slow** - Harder going, favors stamina
+- ⚠️ **Heavy** - The worst condition, very difficult
+
+## Weather Types
+Weather affects track conditions and racing:
+- **Scorching** - Extremely hot
+- **Very Hot** - High temperatures
+- **Fine and Hot** - Clear skies, warm
+- **Fine and Warm** - Pleasant conditions
+- **Sunny** - Bright and clear
+- **Overcast** - Cloudy but dry
+- **Morning Drizzle** - Light rain early
+- **Afternoon Showers** - Rain later
+- **Morning Showers** - Rain early
+- **Rain** - Wet conditions
+
+*Understanding these levels helps you make better decisions about training, racing, and horse management.*
 
 ## Your First Three Steps
 
