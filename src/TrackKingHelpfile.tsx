@@ -744,8 +744,8 @@ Some training types (pampering) will also help improve your horses physical and 
 *Use vet services wisely - they help, but time heals best!*
       `
     },
-    'first-things-second': {
-      title: 'First Things Second',
+    'vet-services': {
+      title: 'Vet Services',
       content: `
 # First Things Second
 
@@ -1394,8 +1394,8 @@ Take your time at each level to master the fundamentals before advancing. Each c
 *The class system provides structure and goals for your Track King journey - embrace each level as an opportunity to grow.*
       `
     },
-    'first-things-second': {
-      title: 'First Things Second',
+    'the-levels': {
+      title: 'The Levels',
       content: `
 # First Things Second
 
