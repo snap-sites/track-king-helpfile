@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { ChevronRight, ChevronDown, Home, Users, Star, Gamepad2, Menu, X, Search, Trophy, Heart, Zap } from 'lucide-react';
+import { useState } from 'react';
+import { ChevronRight, ChevronDown, Home, Star, Gamepad2, Menu, X, Search, Trophy, Heart, Zap } from 'lucide-react';
 
 const TrackKingHelpfile = () => {
   const [currentSection, setCurrentSection] = useState('home');
@@ -48,7 +48,7 @@ const TrackKingHelpfile = () => {
         'stakes-racing': 'Stakes Racing',
         'cup-races': 'Cup Races',
         'injury-profile': 'Injury Profile',
-        'agistment-facilities-money': 'Agistment, Facilities and Money!',
+        'agistment-facilities-and-money': 'Agistment, Facilities and Money',
         'auctions': 'Auctions',
         'breeding': 'Breeding',
         'yearling-sales': 'Yearling Sales',
@@ -1471,7 +1471,7 @@ Each horse has different susceptibility to injuries based on:
 *Use the Injury Profile to balance performance goals with horse welfare.*
       `
     },
-    'agistment-facilities-money': {
+    'agistment-facilities-and-money': {
       title: 'Agistment, Facilities and Money!',
       content: `
 # Agistment, Facilities and Money!
@@ -1504,7 +1504,7 @@ The key is balancing investments in facilities with the reliable income from agi
     }
   };
 
-  const toggleSection = (sectionKey) => {
+  const toggleSection = (sectionKey: string) => {
     setExpandedSections(prev => 
       prev.includes(sectionKey) 
         ? prev.filter(s => s !== sectionKey)
@@ -1512,8 +1512,8 @@ The key is balancing investments in facilities with the reliable income from agi
     );
   };
 
-  const renderMarkdown = (content) => {
-    return content.split('\n').map((line, index) => {
+  const renderMarkdown = (content: string) => {
+    return content.split('\n').map((line: string, index: number) => {
       if (line.startsWith('# ')) {
         return <h1 key={index} className="text-3xl font-bold text-gray-900 mb-4 border-b-2 border-blue-500 pb-2">{line.slice(2)}</h1>;
       }
@@ -1552,11 +1552,11 @@ The key is balancing investments in facilities with the reliable income from agi
   const filteredPages = () => {
     if (!searchTerm) return null;
     
-    const results = [];
-    Object.entries(navigation).forEach(([sectionKey, section]) => {
-      Object.entries(section.pages).forEach(([pageKey, pageTitle]) => {
+    const results: Array<{sectionKey: string, pageKey: string, pageTitle: string, sectionTitle: string}> = [];
+    Object.entries(navigation).forEach(([sectionKey, section]: [string, any]) => {
+      Object.entries(section.pages).forEach(([pageKey, pageTitle]: [string, any]) => {
         if (pageTitle.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            (pageContent[pageKey]?.content || '').toLowerCase().includes(searchTerm.toLowerCase())) {
+            (pageContent[pageKey as keyof typeof pageContent]?.content || '').toLowerCase().includes(searchTerm.toLowerCase())) {
           results.push({
             sectionKey,
             pageKey,
