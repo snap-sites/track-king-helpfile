@@ -747,11 +747,53 @@ Some training types (pampering) will also help improve your horses physical and 
     'vet-services': {
       title: 'Vet Services',
       content: `
-# First Things Second
+# Vet Services
 
-As you should have discovered by now, there is a lot in TK. The site contains a lot of information on how best to succeed.
+## Overview
 
-A few basic easy steps to getting started, and getting those horses heading towards winning condition!
+Vet services are applied to horses to help increase the rate of improvement in both their physical and medical condition. The more vet hours, the faster you can expect your horses to improve.
+
+**But remember, vets have MINIMAL impact on physical recuperation. Time plays a much more important role than vets.**
+
+## When Vet Services Are Needed
+
+Racing and some types of training are hard work on your horse, and you can expect a drop in physical condition, and if the horse picks up an injury in a race, a drop in medical condition. This is when your team of expert vets step in, and work hard to get the horse fit and healthy again.
+
+Some training types (pampering) will also help improve your horses physical and medical condition, but remember, every training has its drawbacks!
+
+### Vet Hours Limit
+- **Maximum 12 hours** per horse per week (same as training)
+- **Weekly billing** - You pay the cost each week regardless of use
+- **No reduction costs** - Unlike other services, reducing vet hours has no cost
+
+### Effectiveness
+- ✅ **Helpful for recovery** - Speeds up condition improvement
+- ⚠️ **Time is more important** - Natural recovery is the primary factor
+- 🏥 **Injury focus** - Most effective for medical condition issues
+
+## Cost Management
+
+### Class-Based Pricing
+- Depending on your class, vet hours will cost different amounts
+- Higher classes pay more for the same services
+- Budget accordingly when planning your stable expenses
+
+### Timing Reductions
+**Important:** If you wish to reduce your number of vet hours, the best time to do it is as close as possible to financial update on Sunday night. This maximizes the amount of time you get from the vets that you have already paid for, without incurring the cost of having them on staff for another week.
+
+## Strategic Use
+
+### When to Use More Vet Hours
+- **After tough races** - Help horses recover faster
+- **During injury periods** - Speed medical condition improvement
+- **Heavy training periods** - Support physical condition maintenance
+
+### When to Reduce Vet Hours
+- **Healthy stable** - When all horses are in good condition
+- **Budget constraints** - Cut costs during tight financial periods
+- **Off-season** - When horses aren't racing or training heavily
+
+*Use vet services wisely - they help, but time heals best!*
 
 ## Your First Three Steps
 
@@ -1556,7 +1598,7 @@ The key is balancing investments in facilities with the reliable income from agi
     Object.entries(navigation).forEach(([sectionKey, section]: [string, any]) => {
       Object.entries(section.pages).forEach(([pageKey, pageTitle]: [string, any]) => {
         if (pageTitle.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            (pageContent[pageKey as keyof typeof pageContent]?.content || '').toLowerCase().includes(searchTerm.toLowerCase())) {
+            ((pageContent as any)[pageKey]?.content || '').toLowerCase().includes(searchTerm.toLowerCase())) {
           results.push({
             sectionKey,
             pageKey,
