@@ -1,9 +1,5 @@
 import { useState } from 'react';
 import { ChevronRight, ChevronDown, Home, Star, Gamepad2, Menu, X, Search, Trophy, Heart, Zap } from 'lucide-react';
-import charlieImage from './assets/images/charlie.jpg';
-import statsImage from './assets/images/stats.jpg';
-import xpImage from './assets/images/xp pic.jpg';
-import trainingTableImage from './assets/images/training table.jpg';
 
 const TrackKingHelpfile = () => {
   const [currentSection, setCurrentSection] = useState('home');
@@ -1663,7 +1659,7 @@ The key is balancing investments in facilities with the reliable income from agi
           elements.push(
             <div key={`${index}-image`} className="mb-6 flex justify-center">
               <img 
-                src={charlieImage} 
+                src="/images/charlie.jpg" 
                 alt="Charlie - Your Track King Tour Guide" 
                 className="max-w-md w-full h-auto rounded-lg shadow-lg border-2 border-gray-300"
               />
@@ -1680,19 +1676,19 @@ The key is balancing investments in facilities with the reliable income from agi
             <div key={`${index}-horse-images`} className="mb-6 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="flex flex-col items-center">
                 <img 
-                  src={statsImage} 
+                  src="/images/stats.jpg" 
                   alt="Horse Stats Interface" 
                   className="w-full h-auto rounded-lg shadow-lg border-2 border-gray-300 cursor-pointer hover:shadow-xl transition-shadow duration-300"
-                  onClick={() => setZoomedImage({src: statsImage, alt: "Horse Stats Interface"})}
+                  onClick={() => setZoomedImage({src: "/images/stats.jpg", alt: "Horse Stats Interface"})}
                 />
                 <p className="text-sm text-gray-600 mt-2 text-center">Horse Body Stats Interface (Click to zoom)</p>
               </div>
               <div className="flex flex-col items-center">
                 <img 
-                  src={xpImage} 
+                  src="/images/xp pic.jpg" 
                   alt="Horse XP Interface" 
                   className="w-full h-auto rounded-lg shadow-lg border-2 border-gray-300 cursor-pointer hover:shadow-xl transition-shadow duration-300"
-                  onClick={() => setZoomedImage({src: xpImage, alt: "Horse XP Interface"})}
+                  onClick={() => setZoomedImage({src: "/images/xp pic.jpg", alt: "Horse XP Interface"})}
                 />
                 <p className="text-sm text-gray-600 mt-2 text-center">Horse Experience (XP) Interface (Click to zoom)</p>
               </div>
@@ -1706,10 +1702,10 @@ The key is balancing investments in facilities with the reliable income from agi
             <div key={`${index}-training-image`} className="mb-6 flex justify-center">
               <div className="flex flex-col items-center max-w-4xl">
                 <img 
-                  src={trainingTableImage} 
+                  src="/images/training table.jpg" 
                   alt="Training Types Overview Table" 
                   className="w-full h-auto rounded-lg shadow-lg border-2 border-gray-300 cursor-pointer hover:shadow-xl transition-shadow duration-300"
-                  onClick={() => setZoomedImage({src: trainingTableImage, alt: "Training Types Overview Table"})}
+                  onClick={() => setZoomedImage({src: "/images/training table.jpg", alt: "Training Types Overview Table"})}
                 />
                 <p className="text-sm text-gray-600 mt-2 text-center">Complete Training Types Table with Stat Effects (Click to zoom)</p>
               </div>
