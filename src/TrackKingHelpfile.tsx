@@ -1,11 +1,16 @@
 import { useState } from 'react';
 import { ChevronRight, ChevronDown, Home, Star, Gamepad2, Menu, X, Search, Trophy, Heart, Zap } from 'lucide-react';
+import charlieImage from './assets/images/charlie.jpg';
+import statsImage from './assets/images/stats.jpg';
+import xpImage from './assets/images/xp pic.jpg';
+import trainingTableImage from './assets/images/training table.jpg';
 
 const TrackKingHelpfile = () => {
   const [currentSection, setCurrentSection] = useState('home');
   const [expandedSections, setExpandedSections] = useState(['house-keeping']);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  const [zoomedImage, setZoomedImage] = useState<{src: string, alt: string} | null>(null);
 
   // Navigation structure matching the original helpfile
   const navigation = {
@@ -64,7 +69,6 @@ const TrackKingHelpfile = () => {
         'things-to-do': 'Things to do...',
         'racing-silks': 'All The Pretty Pictures',
         'betting': 'Betting',
-        'training-track': 'Training Track',
         'h-o-o-f': 'H.O.O.F.'
       }
     }
@@ -549,15 +553,9 @@ Ok, maybe it isn't dirty, and you don't sleep on it. But a few little bits and p
 - **TK-Fishbrain** - Game Creator
 
 ### Game Masters
-- **GM-Fossunited** - New Zealand
-- **GM-Gopher27** - United Kingdom  
 - **GM-Poida** - Australia
-- **GM-Nickbete** - South America
 - **GM-Ersins** - United Kingdom
-- **GM-Riddley** - Australia
-
-### Our Fearless Moderators
-- **MOD-Trowjans** - New Zealand - Mentor Program
+- **GM-Superwoogie** - United Kingdom
 
 ## Star Meanings
 
@@ -1317,42 +1315,6 @@ If you aren't particularly handy with creating pictures to use as logos, there a
 *Racing silks and stable logos are your chance to express creativity and build a distinctive visual identity in the Track King community.*
       `
     },
-    'training-track': {
-      title: 'Training Track',
-      content: `
-# Training Track
-
-The Training Track is yet another exciting feature of Track King. This facility is paid for with Personal Finance and is available to anyone who wishes to use it.
-
-## Important Safety Note
-
-Once you click to start a training session, the money is automatically deducted from your bank account. If you do not complete the session, you will lose the money, and won't get the potential XP gains.
-
-## The Three Session Types
-
-### Session 1: The Light Session (Arcade Mile)
-An arcade style game where you compete against nine other bot horses. You can select the jockey type and race level:
-
-- **Easy** - the jockey maintains perfect balance throughout the race
-- **Medium** - the jockey may lose balance during the race  
-- **Hard** - the jockey may lose balance, and scramble the directions
-
-*This is NOT a training session - no physical/medical impact, or XP gain*
-**Cost: $1,000**
-
-### Session 2: Normal Session
-A regular training session where you can select distance, weather, track type, number of opponents, quality of horses, jockey, and race instructions.
-
-A small medical/physical loss can be expected, plus experience in the selected distance/track condition.
-**Cost: $20,000**
-
-### Session 3: Full Session
-This is equivalent to a normal race. Expect the same physical/medical loss and experience gains as a regular race.
-**Cost: $50,000**
-
-*The Training Track offers a controlled environment to test your horses and strategies.*
-      `
-    },
     'finances': {
       title: 'Finances',
       content: `
@@ -1687,40 +1649,105 @@ The key is balancing investments in facilities with the reliable income from agi
   };
 
   const renderMarkdown = (content: string) => {
-    return content.split('\n').map((line: string, index: number) => {
+    const lines = content.split('\n');
+    const elements = [];
+    
+    for (let index = 0; index < lines.length; index++) {
+      const line = lines[index];
+      
       if (line.startsWith('# ')) {
-        return <h1 key={index} className="text-3xl font-bold text-gray-900 mb-4 border-b-2 border-blue-500 pb-2">{line.slice(2)}</h1>;
+        elements.push(<h1 key={index} className="text-3xl font-bold text-gray-900 mb-4 border-b-2 border-blue-500 pb-2">{line.slice(2)}</h1>);
+        
+        // Add Charlie image right after the "Charlie" heading
+        if (line.slice(2).trim() === 'Charlie' && currentSection === 'charlie') {
+          elements.push(
+            <div key={`${index}-image`} className="mb-6 flex justify-center">
+              <img 
+                src={charlieImage} 
+                alt="Charlie - Your Track King Tour Guide" 
+                className="max-w-md w-full h-auto rounded-lg shadow-lg border-2 border-gray-300"
+              />
+            </div>
+          );
+        }
       }
-      if (line.startsWith('## ')) {
-        return <h2 key={index} className="text-2xl font-semibold text-gray-800 mb-3 mt-6 flex items-center gap-2"><Zap className="w-5 h-5 text-blue-500" />{line.slice(3)}</h2>;
+      else if (line.startsWith('## ')) {
+        elements.push(<h2 key={index} className="text-2xl font-semibold text-gray-800 mb-3 mt-6 flex items-center gap-2"><Zap className="w-5 h-5 text-blue-500" />{line.slice(3)}</h2>);
+        
+        // Add horse interface images after "Key Interface Elements" heading in horses section
+        if (line.slice(3).trim() === 'Key Interface Elements' && currentSection === 'horses') {
+          elements.push(
+            <div key={`${index}-horse-images`} className="mb-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex flex-col items-center">
+                <img 
+                  src={statsImage} 
+                  alt="Horse Stats Interface" 
+                  className="w-full h-auto rounded-lg shadow-lg border-2 border-gray-300 cursor-pointer hover:shadow-xl transition-shadow duration-300"
+                  onClick={() => setZoomedImage({src: statsImage, alt: "Horse Stats Interface"})}
+                />
+                <p className="text-sm text-gray-600 mt-2 text-center">Horse Body Stats Interface (Click to zoom)</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <img 
+                  src={xpImage} 
+                  alt="Horse XP Interface" 
+                  className="w-full h-auto rounded-lg shadow-lg border-2 border-gray-300 cursor-pointer hover:shadow-xl transition-shadow duration-300"
+                  onClick={() => setZoomedImage({src: xpImage, alt: "Horse XP Interface"})}
+                />
+                <p className="text-sm text-gray-600 mt-2 text-center">Horse Experience (XP) Interface (Click to zoom)</p>
+              </div>
+            </div>
+          );
+        }
+        
+        // Add training table image after "Training Types Overview" heading in training section
+        if (line.slice(3).trim() === 'Training Types Overview' && currentSection === 'training') {
+          elements.push(
+            <div key={`${index}-training-image`} className="mb-6 flex justify-center">
+              <div className="flex flex-col items-center max-w-4xl">
+                <img 
+                  src={trainingTableImage} 
+                  alt="Training Types Overview Table" 
+                  className="w-full h-auto rounded-lg shadow-lg border-2 border-gray-300 cursor-pointer hover:shadow-xl transition-shadow duration-300"
+                  onClick={() => setZoomedImage({src: trainingTableImage, alt: "Training Types Overview Table"})}
+                />
+                <p className="text-sm text-gray-600 mt-2 text-center">Complete Training Types Table with Stat Effects (Click to zoom)</p>
+              </div>
+            </div>
+          );
+        }
       }
-      if (line.startsWith('### ')) {
-        return <h3 key={index} className="text-xl font-medium text-gray-700 mb-2 mt-4">{line.slice(4)}</h3>;
+      else if (line.startsWith('### ')) {
+        elements.push(<h3 key={index} className="text-xl font-medium text-gray-700 mb-2 mt-4">{line.slice(4)}</h3>);
       }
-      if (line.startsWith('- **') && line.includes('**:')) {
+      else if (line.startsWith('- **') && line.includes('**:')) {
         const [label, ...rest] = line.slice(2).split('**:');
-        return <li key={index} className="mb-2"><strong className="text-blue-600">{label}</strong>: {rest.join('**:')}</li>;
+        elements.push(<li key={index} className="mb-2"><strong className="text-blue-600">{label}</strong>: {rest.join('**:')}</li>);
       }
-      if (line.startsWith('- ✅')) {
-        return <li key={index} className="mb-1 text-green-600 flex items-center gap-2"><span className="text-green-500">✅</span>{line.slice(4)}</li>;
+      else if (line.startsWith('- ✅')) {
+        elements.push(<li key={index} className="mb-1 text-green-600 flex items-center gap-2"><span className="text-green-500">✅</span>{line.slice(4)}</li>);
       }
-      if (line.startsWith('- ❌')) {
-        return <li key={index} className="mb-1 text-red-600 flex items-center gap-2"><span className="text-red-500">❌</span>{line.slice(4)}</li>;
+      else if (line.startsWith('- ❌')) {
+        elements.push(<li key={index} className="mb-1 text-red-600 flex items-center gap-2"><span className="text-red-500">❌</span>{line.slice(4)}</li>);
       }
-      if (line.startsWith('- ⚠️')) {
-        return <li key={index} className="mb-1 text-orange-600 flex items-center gap-2"><span className="text-orange-500">⚠️</span>{line.slice(4)}</li>;
+      else if (line.startsWith('- ⚠️')) {
+        elements.push(<li key={index} className="mb-1 text-orange-600 flex items-center gap-2"><span className="text-orange-500">⚠️</span>{line.slice(4)}</li>);
       }
-      if (line.startsWith('- ')) {
-        return <li key={index} className="mb-1 ml-4">{line.slice(2)}</li>;
+      else if (line.startsWith('- ')) {
+        elements.push(<li key={index} className="mb-1 ml-4">{line.slice(2)}</li>);
       }
-      if (line.trim() === '') {
-        return <br key={index} />;
+      else if (line.trim() === '') {
+        elements.push(<br key={index} />);
       }
-      if (line.startsWith('*') && line.endsWith('*')) {
-        return <p key={index} className="italic text-gray-600 bg-blue-50 p-3 rounded-lg border-l-4 border-blue-200 my-4">{line.slice(1, -1)}</p>;
+      else if (line.startsWith('*') && line.endsWith('*')) {
+        elements.push(<p key={index} className="italic text-gray-600 bg-blue-50 p-3 rounded-lg border-l-4 border-blue-200 my-4">{line.slice(1, -1)}</p>);
       }
-      return <p key={index} className="mb-2 leading-relaxed">{line}</p>;
-    });
+      else {
+        elements.push(<p key={index} className="mb-2 leading-relaxed">{line}</p>);
+      }
+    }
+    
+    return elements;
   };
 
   const filteredPages = () => {
@@ -1769,7 +1796,10 @@ In the meantime, explore other sections of the helpfile using the navigation men
               >
                 <Menu className="w-6 h-6" />
               </button>
-              <div className="flex items-center gap-3">
+              <button 
+                onClick={() => setCurrentSection('home')}
+                className="flex items-center gap-3 hover:opacity-80 transition-opacity cursor-pointer"
+              >
                 <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
                   <Trophy className="w-8 h-8 text-white" />
                 </div>
@@ -1777,7 +1807,7 @@ In the meantime, explore other sections of the helpfile using the navigation men
                   <h1 className="text-2xl font-bold text-gray-900">Track King</h1>
                   <p className="text-sm text-gray-600">Newbies Helpfile</p>
                 </div>
-              </div>
+              </button>
             </div>
             
             <div className="hidden sm:flex items-center gap-4">
@@ -1920,7 +1950,7 @@ In the meantime, explore other sections of the helpfile using the navigation men
                   <span>Preserved from the original Track King Newbies Helpfile</span>
                   <Heart className="w-4 h-4 text-red-400" />
                 </div>
-                <p>Archived October 25, 2020 • Restored with ❤️ for the TK community</p>
+                <p>Archived October 25, 2020 • Restored with ❤️ for the TK community by pedantic32</p>
               </footer>
             </article>
           </div>
@@ -1933,6 +1963,35 @@ In the meantime, explore other sections of the helpfile using the navigation men
           className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
           onClick={() => setSidebarOpen(false)}
         />
+      )}
+
+      {/* Image zoom modal */}
+      {zoomedImage && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4"
+          onClick={() => setZoomedImage(null)}
+        >
+          <div 
+            className="relative max-w-7xl max-h-full"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setZoomedImage(null)}
+              className="absolute top-4 right-4 bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full p-2 z-10 transition-colors"
+            >
+              <X className="w-6 h-6 text-gray-700" />
+            </button>
+            <img 
+              src={zoomedImage.src} 
+              alt={zoomedImage.alt}
+              className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+            />
+            <div className="absolute bottom-4 left-4 right-4 bg-black bg-opacity-60 text-white p-3 rounded-lg">
+              <p className="text-center font-medium">{zoomedImage.alt}</p>
+              <p className="text-center text-sm mt-1 text-gray-300">Click outside image or X to close</p>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );
